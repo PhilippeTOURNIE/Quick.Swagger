@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Quick.Swagger/bin
+/Quick.Swagger/obj
+/Quick.Swagger.sample/.vs
+/Quick.Swagger.sample/bin/Debug/net7.0
+/Quick.Swagger.sample/obj
