@@ -147,7 +147,7 @@ See project ApiDemo
 
 ## Build and Development
 
-`dotnet build --configuration release ./Quick.SwaggerWidthApiVersion.csproj
+`dotnet build --configuration release ./Quick.SwaggerWidthApiVersion.csproj`
 
-`dotnet pack -o ./Artefacts ./Quick.SwaggerWidthApiVersion.csproj
+`dotnet pack -o ./Artefacts ./Quick.SwaggerWidthApiVersion.csproj`
 
