@@ -1,7 +1,5 @@
 # Quick.SwaggerWidthApiVersion
 
-[![Build](https://github.com/PhilippeTOURNIE/Quick.Swagger/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/PhilippeTOURNIE/Quick.Swagger/actions/workflows/build.yml)
-[![CodeQL](https://github.com/PhilippeTOURNIE/Quick.Swagger/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/PhilippeTOURNIE/Quick.Swagger/actions/workflows/codeql-analysis.yml)
 [![contributionswelcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/PhilippeTOURNIE/Quick.Swagger)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/PhilippeTOURNIE/Quick.Swagger/blob/main/LICENSE.md)
@@ -33,11 +31,11 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
+
 app.AddQuickUseSwagger();
+
 app.Run();
 
 ```
@@ -149,7 +147,7 @@ See project ApiDemo
 
 ## Build and Development
 
-`dotnet cake --target build`
+`dotnet build --configuration release ./Quick.SwaggerWidthApiVersion.csproj
 
-`dotnet pack -o ./Artefacts`
+`dotnet pack -o ./Artefacts ./Quick.SwaggerWidthApiVersion.csproj
 
