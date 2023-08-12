@@ -41,6 +41,26 @@ public static class SwaggerCustomExtension
     /// [ApiVersion("2.0", Deprecated = false)] 
     /// [Route("/api/v{version:apiVersion}/[controller]")]
     /// </summary>
+    /// <param name="services">service.</param>
+    /// <param name="title">title</param>
+    /// <param name="versions">list of version string format</param>
+    /// <returns></returns>
+    public static IServiceCollection AddQuickSwaggerWidthApiVersion(this IServiceCollection services, string title,params string[] versions)
+    {
+        foreach (var version in versions)
+        {
+            _OpenApiInfos.Add(new OpenApiInfo { Title = title, Version = version });
+        }
+
+        return services.AddQuickSwaggerWidthApiVersion(_OpenApiInfos);
+    }
+
+    /// <summary>
+    /// Add quick swaggle and Api version
+    /// sample controller Attribute
+    /// [ApiVersion("2.0", Deprecated = false)] 
+    /// [Route("/api/v{version:apiVersion}/[controller]")]
+    /// </summary>
     /// <param name="services">service</param>
     /// <param name="openApiInfos">List of api version info</param>
     /// <returns></returns>
@@ -107,8 +127,10 @@ public static class SwaggerCustomExtension
         });
         services.AddVersionedApiExplorer(o =>
         {
+            // https://github.com/dotnet/aspnet-api-versioning/wiki/Version-Format#custom-api-version-format-strings
             o.GroupNameFormat = "'v'VVV";
             o.SubstituteApiVersionInUrl = true;
+            
         });
     }
 
@@ -135,6 +157,8 @@ public static class SwaggerCustomExtension
             //bonus
             app.UseDeveloperExceptionPage();
             IdentityModelEventSource.ShowPII = true;
+
+            _OpenApiInfos = null;
         }
       
         return app;

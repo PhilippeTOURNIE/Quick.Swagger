@@ -40,6 +40,25 @@ app.Run();
 
 ```
 
+Controller width attribute version 
+
+```csharp
+
+    [ApiVersion("1.0", Deprecated = false)]
+    [ApiController]
+    [Route("/api/v{version:apiVersion}/[controller]")]
+    public class DemoController : ControllerBase
+    {
+     ...
+	    [MapToApiVersion("1.0")]
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok("Hello World");
+        }
+	 ...
+	}
+```
 
 ## Step 1 in the builder 
 Replace 'AddSwaggerGen' by 'AddQuickSwaggerWidthApiVersion'
@@ -86,9 +105,13 @@ builder.Services.AddVersionedApiExplorer(o => {
 Replace by 
 
 ```csharp
-builder.Services.AddQuickSwaggerWidthApiVersion("Demo", 2);
+builder.Services.AddQuickSwaggerWidthApiVersion("Demo", 2);  // 2 -> "v1","v2"
 ```
+Or replace by 
 
+```csharp
+builder.Services.AddQuickSwaggerWidthApiVersion("Demo","v1", "v1.1", "v2");
+```
 Or replace by 
 
 ```csharp

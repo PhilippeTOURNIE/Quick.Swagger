@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddQuickSwaggerWidthApiVersion("Demo", 2);
+builder.Services.AddQuickSwaggerWidthApiVersion("Demo","v1", "v1.1", "v2");
 
 var app = builder.Build();
 
